@@ -367,9 +367,9 @@
   /*************** الحماية: مستخدمو الإحصائية ***************/
   const AUTH_SALT = 'ai-eng-2025';
   const AUTH_USERS = {
-    'shaimaa.mudhafar@nahrainuniv.edu.iq': '449e7936fae1db20a674a5c1b893628b5693c95c0da258c2da50c73fdf24a16f', // nahrain@1
-    'Noor.maher@nahrainuniv.edu.iq':      'a454327e5d4b28605fcc8b2b6e6e1b23c2cdd43dc680842cc1ff45be1a68e96f', // nahrain@2
-    'omar.a.abbas@nahrainuniv.edu.iq':    'f80a1833312a96e92ab373c991c992f4d4f10c3fc174a81c38012ef92de8be45'  // nahrain@3
+    'shaimaa.mudhafar@nahrainuniv.edu.iq': '449e7936fae1db20a674a5c1b893628b5693c95c0da258c2da50c73fdf24a16f', 
+    'Noor.maher@nahrainuniv.edu.iq':      'a454327e5d4b28605fcc8b2b6e6e1b23c2cdd43dc680842cc1ff45be1a68e96f', 
+    'omar.a.abbas@nahrainuniv.edu.iq':    'f80a1833312a96e92ab373c991c992f4d4f10c3fc174a81c38012ef92de8be45'  
   };
 
   function openStats(){
@@ -426,95 +426,98 @@
   /* ===== المرحلة الأولى – الكورس الأول – الصباحية ===== */
   const ST1_CR1_MORNING = {
     theory: [
-      {name:"رياضيات",      sheet:"W1", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"اللغة العربية", sheet:"W2", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"المنطق المحدد", sheet:"W3", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"حاسوب",       sheet:"W4", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"ديمقراطية",   sheet:"W5", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"فيزياء",      sheet:"W6", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"رسم هندسي",   sheet:"W7", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
+      {name:"رياضيات",      sheet:"W1", excelUrl:"https://docs.google.com/spreadsheets/d/1Hvs5EouOMLdEQG8KWKWEp3Nj1NdWNlCS35wmjO1QpUE/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbxuyHKIDhncv1Cl-Hv7alzKJEbCqaGCSZMs8MlnuINmp5tBCGy3uijrsFxhZu7_o2Ph/exec"},
+      {name:"اللغة العربية", sheet:"W2", excelUrl:"https://docs.google.com/spreadsheets/d/1P_Lu34O1Hai7_VTlgh0MMv0NaBmbTGUahoGFgwZmFaE/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzASD2kGLITj60illSbD8Wcy36SfCWT613QfxOFcIopElpZ8oSj04aNi3dXM7y4Hs8UXQ/exec"},
+      {name:"المنطق المحدد", sheet:"W3", excelUrl:"https://docs.google.com/spreadsheets/d/1O21sAd-zAmL4CoCaexYPZzl4zcidب6fojqW-VS2ZgQY/edit?usp=drive_link", scriptUrl:"https://script.google.com/macros/s/AKfycbypW8nupQBLnpxOvfZS-l85vXن1jMQAkW9iJHfEuretD5AqHafGS0V2TWo4XXg2uLqq/exec"},
+      {name:"حاسوب",       sheet:"W4", excelUrl:"https://docs.google.com/spreadsheets/d/1VY20Mbf-8h2qpllc4m11idzOvUXcF1So-CZx2g9FrhQ/edit?usp=drive_link", scriptUrl:"https://script.google.com/macros/s/AKfycbzJZpvMLKH2pabMn7Y0nUwPCmqp47Cj0Rr5dvzy7X36KZZCqCGugbbbJRJs9WmZIEql/exec"},
+      {name:"ديمقراطية",   sheet:"W5", excelUrl:"https://docs.google.com/spreadsheets/d/1KIxWcKl7s8QHfUn4U2KGbdgSXRS2-tYhc_X8DlVMmLI/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbwLC91zB7J5aPWHADH8BMVFf-R1BOp9KMzvioWr5h4olN00PZGJHUOfNux0ZTwaGbSQ2w/exec"},
+      {name:"فيزياء",      sheet:"W6", excelUrl:"https://docs.google.com/spreadsheets/d/1_hER5IZ4qbREMosUIeq8JJn60f_0rFx38w3zPGOGzIM/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzwfehtO_-8DlG7LSjPPb8WsUB9pYnOKSFQR7c548G6eVDx0UNE71EupGja6xFHuQXtHg/exec"},
+      {name:"رسم هندسي",   sheet:"W7", excelUrl:"https://docs.google.com/spreadsheets/d/1vZ8GaoYFvbej2dWybabl0Lin7SxIwl-esFvWIx6HsVk/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbwY03Knnb6j9mvqKCi2pwkkBnWZTLqC7PSMsSPUksbcnQrzUa_bFLfuEue8lkfQeFTLtQ/exec"},
     ],
     drill: [
-      {name:"تمارين رياضيات",     sheet:"W8",  excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"أونلاين رياضيات",     sheet:"W12", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"تمارين المنطق المحدد", sheet:"W14", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"تمارين فيزياء",      sheet:"W11", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
+      {name:"تمارين رياضيات",     sheet:"W8",  excelUrl:"https://docs.google.com/spreadsheets/d/1btjQ7JJN3URP3px-fuTMbhxjxrEATA6jNtYXXeyqtyw/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbxXMuL8innEASs6O8O_3Lb3p_r7l2ERvSCff77RTfdMTD9Z3drKqUKxztFf4rAvPoTPUg/exec"},
+      {name:"أونلاين رياضيات",     sheet:"W12", excelUrl:"https://docs.google.com/spreadsheets/d/1KyIC728DTtIXxG8P2FTHlXxp8FTz6afiIb5MHHVBRNY/edit?usp=drive_link", scriptUrl:"https://script.google.com/macros/s/AKfycbwZ7M9X-ZgxWUJ_gJ8bDO67NpsX2TK8w74BMZiuiQMNTDG-C4GbbrgeHEQQtTV0P9n4/exec"},
+      {name:"تمارين المنطق المحدد", sheet:"W14", excelUrl:"https://docs.google.com/spreadsheets/d/1G7-ofxx2i9GN3YDnER6Nwk-eRpxW56i7ObytHXD9i60/edit?usp=drive_link", scriptUrl:"https://script.google.com/macros/s/AKfycbzRNUNk5XcP34OUKGYDW4SF6DIQ_duMGOlOCHYROBeM46LJNsbsXxv_imcMfKVG112c/exec"},
+      {name:"تمارين فيزياء",      sheet:"W11", excelUrl:"https://docs.google.com/spreadsheets/d/1HtzIfaT7txhKErfA1N0U-RS0e7hqmTXX0Shj3ciFUcE/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbwKVkhD1PUhHXKnQZvy4sw0dbVf2zKiuX2ox-iVKI3khomC57cLN38O47zsnFcUJODuew/exec"},
     ],
     lab: [
-      {name:"مختبر الرسم الهندسي", sheet:"W13", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"مختبر الفيزياء",     sheet:"W9",  excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"مختبر الحاسوب",      sheet:"W10", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
+      {name:"مختبر الرسم الهندسي", sheet:"W13", excelUrl:"https://docs.google.com/spreadsheets/d/1KfplcY88qq-q4W6S1uC-akvacBz5Q9_uuwu3xbi3Oi0/edit?usp=drive_link", scriptUrl:"https://script.google.com/macros/s/AKfycbxYz6fkekzHbWzCIzHFOjXuEdvuWfRK0vh9kP_IPG55-yHexQvrxe_S2PvflUZePng-Zw/exec"},
+      {name:"مختبر الفيزياء",     sheet:"W9",  excelUrl:"https://docs.google.com/spreadsheets/d/1GLp1_76zd5G7dlaSgpu4n2C82ax2YcP05iM08HZKUZE/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbyyB7FdnwatwHsgiKeb83Wac_Nsg6IicB1CnIQJGsukI19pOskgveichZY4RVCsdfyT9g/exec"},
+      {name:"مختبر الحاسوب",      sheet:"W10", excelUrl:"https://docs.google.com/spreadsheets/d/1nvEtHavqHpYwMAHvUx0ldAihxh7ueeKr0uKMnJtcG9s/edit?usp=drive_link", scriptUrl:"https://script.google.com/macros/s/AKfycbxirH3aBqqRxnQlO4uYdXATDKX9IozkwmmL6BF4cMM6FUnVFA6Ydd7Fbl0PFNWSMNEF/exec"},
     ]
   };
 
   /* ===== المرحلة الأولى – الكورس الأول – المسائية ===== */
   const ST1_CR1_EVENING = {
-    theory: [
-      {name:"رياضيات",      sheet:"N1", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"اللغة العربية", sheet:"N4", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"المنطق المحدد", sheet:"N5", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"حاسوب",       sheet:"N2", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"ديمقراطية",   sheet:"N6", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"فيزياء",      sheet:"N3", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"رسم هندسي",   sheet:"N7", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
+     theory: [
+      {name:"رياضيات",      sheet:"N1", excelUrl:"https://docs.google.com/spreadsheets/d/1adZEZA66kTzXi7pw9h_ZFPsRGFjp2aiE2ZSaSlsduLg/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzllYaoH3RL4bqqA1JI_HEWGb27cBFcsABXhJy5LJpLa8ggDUstI-IdnjsVpOLIhJg/exec"},
+      {name:"اللغة العربية", sheet:"N4", excelUrl:"https://docs.google.com/spreadsheets/d/1jDS0GjVrWeSCddY3UZ9neaP6w0NAVk7957Qf-esfvpc/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbxVD_he3f21Y4Y3CDXPHcIEUyrrLy7VuRsEyRIi0H2LXTV-GdjjXfN5MaU4Fx9qTrpN/exec"},
+      {name:"المنطق المحدد", sheet:"N5", excelUrl:"https://docs.google.com/spreadsheets/d/13OQfkpjD-N8YeF8yt--HsEdatl1xyyBWHuErLrFnjk8/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbxBeI_GQkV7KLs-EduZc9FgaNx2KxIMQiY-pkuMfZYOLeM5BvZJeMwjx2ZhCL6Eo7AR/exec"},
+      {name:"حاسوب",       sheet:"N2", excelUrl:"https://docs.google.com/spreadsheets/d/1AMwpnhhvTEرU8YNMx-EvIfUi8tN0LsPPAIwJxY_mXB0/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbygeH0QXzFo1XHmCHrmrCoVbiSoXDOhoM0XbxBSnFIs2mlMkBqYZxqoLI3hdN3G0Ktk/exec"},
+      {name:"ديمقراطية",   sheet:"N6", excelUrl:"https://docs.google.com/spreadsheets/d/19uYy4VBqMvBw2A_seGPCtPTZhNMhO4ECMdH2X8eUmCc/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzHNumVeIU_zAbhiqJXKjgikkRNXd4Vl9M8zoeXDyz2D9FbJnHswTNH1jZ6HoAHl7nh/exec"},
+      {name:"فيزياء",      sheet:"N3", excelUrl:"https://docs.google.com/spreadsheets/d/1wGztl6__2h66LdkZngXdqB_jf89IOtTdwxdWv0b9rJM/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbxAQVeopIO9lDX1F-G4iFrVzQJWf7xcqeyqe0HkGNWSeIUAJkmqWNDFTd_QB8inFdffdA/exec"},
+      {name:"رسم هندسي",   sheet:"N7", excelUrl:"https://docs.google.com/spreadsheets/d/1oXw3s8vM5Fqimt7rjBMKspYeXGRMJGpbRyzchRCEAA0/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzQJnYnFOm9din9Xn6GE8qxhMmvaedKWjWCtquPVguFYKy_ZzX0XHSGJV1bf3tT-2I65A/exec"},
     ],
     drill: [
-      {name:"تمارين رياضيات",     sheet:"N8",  excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"تمارين المنطق المحدد", sheet:"N11", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"تمارين فيزياء",      sheet:"N10", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"أونلاين رياضيات",     sheet:"N9",  excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
+      {name:"تمارين رياضيات",     sheet:"N8",  excelUrl:"https://docs.google.com/spreadsheets/d/17-MdWLw_S7PoRdUpL9lLMcGwDY5oVfZiJD-EwypBF60/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbyRm_BUD-nfDyIKbzoLi9z_bL-x6I6WkYOjeS-Y_7GhAoSfdL-IBZGQj1M7HP3Zdb82Lg/exec"},
+      {name:"تمارين المنطق المحدد", sheet:"N11", excelUrl:"https://docs.google.com/spreadsheets/d/1EPwAdiIC3raCOTPQHve30POYHwAEgr1t7Yb5ZytgRlU/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzncxf30sNgaHqwjplLGRWyZer724JrSYjOTNEjDbLa23r4iQF_ZGLaxRIZCkyhvGXKzQ/exec"},
+      {name:"تمارين فيزياء",      sheet:"N10", excelUrl:"https://docs.google.com/spreadsheets/d/1KJSHBGKlPjHZJbuUp-nsLsDUdX4l7qIvJ401seFfuXM/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzT0ARFZpp4c42JQM0waWrJxyOTZmGb3pe4-6Ju4dmlo9bXG0GwHenl0WUITDFuSYHpjA/exec"},
+      {name:"أونلاين رياضيات",     sheet:"N9",  excelUrl:"https://docs.google.com/spreadsheets/d/1wtC5YTGHM8qCVXmyNZaSGxRe066qUurmvKbUn7X23y4/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbxdooaUTfdTDW7nkg_PLQwJLvWp0CPUUvGWIc_8ribu9-PrC_yJ1T0YF08v2k_MvBtobQ/exec"},
     ],
     lab: [
-      {name:"مختبر الفيزياء",      sheet:"N12", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"مختبر الحاسوب",       sheet:"N13", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"مختبر الرسم الهندسي",  sheet:"N14", excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
+      {name:"مختبر الفيزياء",      sheet:"N12", excelUrl:"https://docs.google.com/spreadsheets/d/1GdA8rJfthZIhX6RLExF-yy8LrqcZ3ck4GEqIXEEHQpQ/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzAozsK6mM4CocZ4dcCCz0HxSHafm6CQ1lvA7GBlYrysKeuhJIPBkYt8hx6J5TnUPxK/exec"},
+      {name:"مختبر الحاسوب",       sheet:"N13", excelUrl:"https://docs.google.com/spreadsheets/d/1JsN0M4dxi6e4qIiNmzdq8fD6EAogJJZU7FLXMXnth-k/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzBFQohCb3bWi-WFeWgkpWdHjh8RgOnjbOvcmnqABxMKhEa6piZCidORSEzU8Z5FmRB/exec"},
+      {name:"مختبر الرسم الهندسي",  sheet:"N14", excelUrl:"https://docs.google.com/spreadsheets/d/1iTk2TEYonykRl_gooO7NzA_Q0q2rJ3J6fHuMn2_-iVM/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbwN1Lod48hSnRfluCzqFK58jp317G3Xd2sN0KmyZSdb3QzfdV620u3JwLUmLYYvMlW3/exec"},
     ]
+
   };
 
   /* ===== المرحلة الأولى – الكورس الثاني – الصباحية ===== */
   const ST1_CR2_MORNING = {
     theory: [
-      {name:"دوائر كهربائية",sheet:"E1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"هياكل بيانات",sheet:"E2",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"اللغة الانكليزية",sheet:"E3",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"الرياضيات",sheet:"E4",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"الميكانيك الهندسي",sheet:"E5",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"الكيمياء",sheet:"E6",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
+      {name:"دوائر كهربائية",sheet:"E1",excelUrl:"https://docs.google.com/spreadsheets/d/1eF1CHhnAYb3N77V6RzErdyuBTwO3xy1RUiY01AJAI7Q/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbzbNT_ECbnfgUf_Ml2xw5jqabsbBVacZtwocGnv98D-6S5-Tob7qTP9_zDXza2EDAZn2w/exec"},
+      {name:"هياكل بيانات",sheet:"E2",excelUrl:"https://docs.google.com/spreadsheets/d/1_Alj_C86Uz5yeTNd3cfwTkB0xDYTWCf6vZs7o4cjYR4/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbzTxQ6f__y_itvjOiDqOg-ajAG1hXZYiBWQtnOvGXJAYzh8uPszRyASp5h6xxBpDQrZMA/exec"},
+      {name:"اللغة الانكليزية",sheet:"E3",excelUrl:"https://docs.google.com/spreadsheets/d/1MyURtizgdaXiGSykZLA826PNhBW-d_-dQBH2NrCWVhM/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbzAotx8n06KTRT2vknJkb_X7DwcoBajN6KiROzoRLfXsTTE7mBvmlecy8FAXNdqXEugMQ/exec"},
+      {name:"الرياضيات",sheet:"E4",excelUrl:"https://docs.google.com/spreadsheets/d/1v8FnbB5BS9PqbqUAopyjcC10XpIqhYqjjNeIC3JWejE/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbzDl6ABQBZgxBhc15VxAZSH9umoFKGw-CzGXrHzj-Z7N1LBN90p9XZbxyYaCSv-scHHxA/exec"},
+      {name:"الميكانيك الهندسي",sheet:"E5",excelUrl:"https://docs.google.com/spreadsheets/d/1jbXxlog9L7CstayesHBYfeHfvX8tjk7AD7t-0urXVC4/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbxTB9BqC1ir0Zjd5Pu1Z-1u6rcJu2urigRzEP7ATAj9su4agj8GrGtoRBZsF4-5s4XU/exec"},
+      {name:"الكيمياء",sheet:"E6",excelUrl:"https://docs.google.com/spreadsheets/d/1rwHMS1_GJjCc7Am1uFonxloPTikUNZG-wDnBGwqQ-yg/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbwnTlUhujbFBQElEgmUCiM7-gOOpzPoLPQt8ADbry7_5aot-QDBfRdbFipKo5LH8Rm1oQ/exec"},
     ],
     drill: [
-      {name:"أونلاين رياضيات",sheet:"E7",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"تمارين الميكانيك الهندسي",sheet:"E8",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"تمارين الرياضيات",sheet:"E9",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
+      {name:"أونلاين رياضيات",sheet:"E7",excelUrl:"https://docs.google.com/spreadsheets/d/1ypvVaYQUNRyJVtz0OlpWtj7kXc1oQbMbIZر3IxLWiww/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbz0bLر922rtPxJ55UcNTeYPZjjIpdA-1jRTNE3wpdkdmqmiQKT83NUo1nTu-wtild8T/exec"},
+      {name:"تمارين الميكانيك الهندسي",sheet:"E8",excelUrl:"https://docs.google.com/spreadsheets/d/1V33aufHKOBXi6XplOri_O9YOH6Zjl989vYedBLLOo9s/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbzdBnv1QMn8RYVdzhE1RPrZgBCgKB0VrLvHyTpEhBlyu6S5ix04f8q7noIwhY_HoncVtw/exec"},
+      {name:"تمارين الرياضيات",sheet:"E9",excelUrl:"https://docs.google.com/spreadsheets/d/1wNdLDddYTRRvVzZWys3ylhBZd2PqnjRSrMIlrxnfTS0/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbwUQBt4tGoIawsw5tdnGTEIGm3F9xa22J0o8DRXunY1UA0ZLdgTEFiedjaT8RKHa-KO/exec"},
     ],
     lab: [
-      {name:"مختبر الدوائر الكهربائية",sheet:"E10",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"ورش",sheet:"E11",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"مختبر هياكل البيانات",sheet:"E12",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"مختبر الكيمياء",sheet:"E13",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
+      {name:"مختبر الدوائر الكهربائية",sheet:"E10",excelUrl:"https://docs.google.com/spreadsheets/d/133TNmaJrHWmg1u4kihairLzKp-YEulgod95KV1izpPM/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbxNSMO-OSCjIo73bsFCn_msKjPV5bN5i2CWUG-4gfdyD0aQhINmAqRkXpS2S31VZEPE/exec"},
+      {name:"ورش",sheet:"E11",excelUrl:"https://docs.google.com/spreadsheets/d/1GNT9JwL6_llvaEk64ZRTNzqfk8fGdGAEMvP52FVUWNE/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbxLk5SirjF9GFUqDOrqdRLpTwgC474HFuXByoooXTh39t1DykmCSY_rI8JjbaaTI9VR/exec"},
+      {name:"مختبر هياكل البيانات",sheet:"E12",excelUrl:"https://docs.google.com/spreadsheets/d/1kaBPmwxANyQ2tjLsXdBlIKGYgXfAUnALG4fSx2VoKBk/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbwvJdexDxc94Fi1EP_KRDMnRfReo2m5XB0xrCre5SQI-wbYC9rXXf8mg3fyC55CZNB0wg/exec"},
+      {name:"مختبر الكيمياء",sheet:"E12",excelUrl:"https://docs.google.com/spreadsheets/d/1V2DFa7jZ73o2rAKPJUzSzUeVtEVUf6BWI40ClBwFPJs/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbwDzPjogxPQlVUsA7FxQlBLa_iNZ43S-HUf1tmAxQPNWHT9v5DVFbqMR01H_HCwwexzkg/exec"},
     ]
+
   };
 
   /* ===== المرحلة الأولى – الكورس الثاني – المسائية ===== */
   const ST1_CR2_EVENING = {
-    theory: [
-      {name:"دوائر كهربائية",sheet:"O1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"هياكل بيانات",sheet:"O2",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"اللغة الانكليزية",sheet:"O3",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"الرياضيات",sheet:"O4",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"الميكانيك الهندسي",sheet:"O5",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"الكيمياء",sheet:"O6",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
+   theory: [
+      {name:"دوائر كهربائية",sheet:"O1",excelUrl:"https://docs.google.com/spreadsheets/d/1MdVPTfQcw8A2ZZAZNAl2hU9WigQ6BqNcHVP7TK68NhY/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbyw08igm-rx29FUpu625jyPQ3eH5zawxUK0XJI1iHg-4olq0QwxDzkOUd3GC2tuLlxu/exec"},
+      {name:"هياكل بيانات",sheet:"O2",excelUrl:"https://docs.google.com/spreadsheets/d/1mhTvlR11O0CCz7wy5xjBSlxCxtp91aKt1Ycu2lJRiGI/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbx-ZYTP-5t6rOTHsKG0z8ptdi6TW3lQRqDqJ3KolIY3qeYkKqWDpqCYRm99pXFuTq7hpA/exec"},
+      {name:"اللغة الانكليزية",sheet:"O3",excelUrl:"https://docs.google.com/spreadsheets/d/1lxs-yb1DrgPq_YeD2IJi-ue07z1TCdzOCj_e-c1rsug/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbzNX4zdUEomccHpJSN2XGxvy0ND42yuPDwQIhFs15kizOQRLs3-RgU8TS_JF6Y3L0918w/exec"},
+      {name:"الرياضيات",sheet:"O4",excelUrl:"https://docs.google.com/spreadsheets/d/16dh922P7voMa_krJirVtu7H2ByOF1iTDqBGz3aVXzCo/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycby8H7L0GuG1Ipjl7CyUeTrdfqxvpkzGj_g5dYeLihHDbwWGzcjmuLmtHhqu8IEljFNX/exec"},
+      {name:"الميكانيك الهندسي",sheet:"O5",excelUrl:"https://docs.google.com/spreadsheets/d/1JhCSsvxaInuZWwFgZFH0MElwWzkHjLuT79ZlA3DR3AQ/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbx8qFGFWrD9-KRmxSIqyyrdejjuJvdG98tvslsBKCirMmLWAWGP-DYmLr_MVAM6CO8PCQ/exec"},
+      {name:"الكيمياء",sheet:"O6",excelUrl:"https://docs.google.com/spreadsheets/d/1SS2M5H5AaLPCV5JYZW7HKzdV7ZWBrUdttbpNAvIUEfg/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbyH74KRyPmiix0H1ixeibvrhsofjkDzolTj0Dv3V2xHy-Wو7cnFi2TE2IbK31zIbSL1/exec"},
     ],
     drill: [
-      {name:"تمارين رياضيات",sheet:"O13",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"تمارين الميكانيك الهندسي",sheet:"O12",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"أونلاين رياضيات",sheet:"O11",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
+      {name:"تمارين رياضيات",sheet:"O13",excelUrl:"https://docs.google.com/spreadsheets/d/12poDIvmkZDsqGokJl0PmW6ngSUDf3arCnBDWjNmKf_o/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbydmlJZVQ7vv4Fwp6zZ1dClU-54NPOwPznYZOkoKZdL2QLocHp27MTlGO0XlhP5EAvn/exec"},
+      {name:"تمارين الميكانيك الهندسي",sheet:"O12",excelUrl:"https://docs.google.com/spreadsheets/d/1PLFfgDid8iGsiO9xXvWFxaPnVE4T9Ir3AZuNc7_EMqI/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbzVQnK9-H4x_3hnZAikcghykKGMh1BYsDGHHwLa0mCmMlA-1pyp1KY6R8TmDl4MJkTg/exec"},
+      {name:"أونلاين رياضيات",sheet:"O11",excelUrl:"https://docs.google.com/spreadsheets/d/13v_gxm6ANeQ3Jmiv9SqKv984SAuU_od7EdmcDYAWiM8/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbyLmHu7XMct9MWTjR67jUhQ5buWuguLvN44O_fIqyZxK0sJvcYWh40HJsm82ABvRwW32g/exec"},
     ],
     lab: [
-      {name:"مختبر الدوائر الكهربائية",sheet:"O7",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"ورش",sheet:"O8",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"مختبر هياكل البيانات",sheet:"O9",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
-      {name:"مختبر الكيمياء",sheet:"O10",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
+      {name:"مختبر الدوائر الكهربائية",sheet:"O7",excelUrl:"https://docs.google.com/spreadsheets/d/1HjwLCFCPqrJaGr3NT57NoSKC05e3e2J7Hwdfe5IKDjM/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbx3Cs1Woxm7v7XtObrbiJIiL_SrO75WrGUzHP5YownAEzoS-24Qiza_5W-MZsBVjxeu/exec"},
+      {name:"ورش",sheet:"O8",excelUrl:"https://docs.google.com/spreadsheets/d/1_ddbj1YL3XZPaGDMS4jfw6rG0yOrVfN-PAr_KenOHds/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbxJsaA46IxeKs3ttVdd00ad6LCjTGpG3lHH8iBuRsh2z85pkUGN90xQ7H4YnA9omWlO/exec"},
+      {name:"مختبر هياكل البيانات",sheet:"O9",excelUrl:"https://docs.google.com/spreadsheets/d/1cUQ882e7z9lldVjgANNReNujynckiorkavljG6_ro1w/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbxPT9eXNW1jFVKyXwpcaL5B7snGn9icWEgW-UMFOJhRXZhT5Fi04n_3VLdR1TceTtgN/exec"},
+      {name:"مختبر الكيمياء",sheet:"O10",excelUrl:"https://docs.google.com/spreadsheets/d/1GhwH1Y9ulqGVYXDL43hEuInz5fs6I6_nglQr8yMRPT0/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbyRf_Do48EGU35aXgsO4wBduuCjHYbXS0MK0fc3eLYqAyOfoavKQjBmk8XdDbFvX6tf/exec"},
     ]
+
   };
 
   /* ====== المرحلة الثانية – الكورس الأول ====== (أماثلة/Placeholders) */
