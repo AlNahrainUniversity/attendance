@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>واجهة الغيابات – جامعة النهرين</title>
+<title>واجهة الغيابات – جامعة النهرين- كلية الهندسة - قسم هندسة الذكاء الاصطناعي والانسان الالي</title>
 <style>
   :root{
     --bg:#f4f1e8; --panel:#fffaf0;
@@ -13,7 +13,7 @@
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:#222}
 
-  /* ====== البطل (فيديو) ====== */
+  /*  (فيديو)  */
   .hero{position:relative;width:100%;background:#000;line-height:0;margin-bottom:-1px;overflow:hidden}
   .hero video{display:block;width:100%;height:auto;vertical-align:bottom}
   .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--bg);pointer-events:none;z-index:1}
@@ -29,7 +29,7 @@
   .hero-text .l3{font-size:clamp(16px,2.6vw,32px);font-weight:700}
   .hero-logo{width:clamp(100px,18vw,220px);height:auto;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
 
-  /* ===== الأزرار العلوية (كبيرة وخضراء) ===== */
+  /*  الأزرار العلوية  */
   .topbar{display:flex;gap:30px;justify-content:center;padding:24px}
   .chip{
     font-size:22px; padding:20px 36px; border-radius:18px;
@@ -71,11 +71,11 @@
   thead th.small{background:#f7f2e6;font-size:12px}
   td.muted{color:#777;text-align:center;padding:24px}
 
-  /* ====== تمييز خلايا الإنذار ====== */
+  /*  تمييز خلايا الإنذار  */
   .warn-cell{background:#b00020 !important;color:#fff;font-weight:800;animation:pulse 1.2s ease-in-out infinite}
   @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
 
-  /* ====== نافذة تسجيل الدخول ====== */
+  /*  نافذة تسجيل الدخول */
   .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:9999}
   .modal.open{display:flex}
   .modal .box{width:min(92vw,420px);background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.2);padding:18px;direction:rtl;text-align:right}
@@ -96,7 +96,7 @@
     .chip .icon{font-size:24px}
   }
 
-  /* ===== تحسين الطباعة ===== */
+  /*  تحسين الطباعة  */
   @media print{
     *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
     .hero,.topbar,.contact-float,
@@ -142,8 +142,8 @@
 
   <!-- أزرار الرأس (كبيرة وخضراء) -->
   <div class="topbar">
-    <button class="chip" onclick="openProtected('stats')"><span class="icon">📊</span> إحصائية الغيابات</button>
-    <button class="chip" onclick="openProtected('register_home')"><span class="icon">📝</span> تسجيل الغيابات</button>
+    <button class="chip" onclick="openProtected('stats','stats')"><span class="icon">📊</span> إحصائية الغيابات</button>
+    <button class="chip" onclick="openProtected('register_home','reg')"><span class="icon">📝</span> تسجيل الغيابات</button>
   </div>
 
   <div class="wrap">
@@ -211,7 +211,7 @@
       <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
         <h2 style="margin:6px 0 14px">إحصائية الغيابات</h2>
         <div style="display:flex;gap:8px">
-          <button id="logoutBtn" class="chip" style="font-size:16px;padding:10px 16px" onclick="doLogout()">تسجيل الخروج</button>
+          <button id="logoutBtn" class="chip" style="font-size:16px;padding:10px 16px" onclick="doLogout('stats')">تسجيل الخروج</button>
         </div>
       </div>
 
@@ -360,20 +360,36 @@
     showSection('reg_subjects');
   }
 
-  /*************** الحماية: مستخدمو الوصول ***************/
-  const AUTH_SALT = 'ai-eng-2025';
-  const AUTH_USERS = {
-    'shaimaa.mudhafar@nahrainuniv.edu.iq': '449e7936fae1db20a674a5c1b893628b5693c95c0da258c2da50c73fdf24a16f', // nahrain@1
-    'Noor.maher@nahrainuniv.edu.iq':      'a454327e5d4b28605fcc8b2b6e6e1b23c2cdd43dc680842cc1ff45be1a68e96f', // nahrain@2
-    'omar.a.abbas@nahrainuniv.edu.iq':    'f80a1833312a96e92ab373c991c992f4d4f10c3fc174a81c38012ef92de8be45'  // nahrain@3
+  /*************** الحماية (مجموعتان مستقلتان) ***************/
+  const AUTH = {
+    stats: {
+      SALT: 'ai-eng-2025',
+      USERS: {
+        'shaimaa.mudhafar@nahrainuniv.edu.iq': '449e7936fae1db20a674a5c1b893628b5693c95c0da258c2da50c73fdf24a16f', // مثال
+        'Noor.maher@nahrainuniv.edu.iq':      'a454327e5d4b28605fcc8b2b6e6e1b23c2cdd43dc680842cc1ff45be1a68e96f',
+        'omar.a.abbas@nahrainuniv.edu.iq':    'f80a1833312a96e92ab373c991c992f4d4f10c3fc174a81c38012ef92de8be45'
+      }
+    },
+    reg: {
+      SALT: 'ai-eng-2025',
+      USERS: {
+        /* ضع هنا حسابات زر "تسجيل الغيابات" فقط (هاش SHA-256 لكلمة المرور + ":" + SALT) */
+        'shaimaa.mudhafar@nahrainuniv.edu.iq': '449e7936fae1db20a674a5c1b893628b5693c95c0da258c2da50c73fdf24a16f',
+        'someone2@nahrainuniv.edu.iq': 'PUT_SHA256_HASH_HERE'
+      }
+    }
   };
 
-  let pendingTarget = null; // أين نوجّه المستخدم بعد تسجيل الدخول
+  let pendingTarget = null;   // القسم المطلوب فتحه بعد الدخول
+  let pendingArea   = 'stats';// 'stats' أو 'reg'
 
-  function openProtected(targetId){
-    const user = sessionStorage.getItem('abs_user');
-    if(user && AUTH_USERS[user]){ showSection(targetId); return; }
+  function openProtected(targetId, area){
+    const key   = 'abs_user_' + area;
+    const users = AUTH[area]?.USERS || {};
+    const user  = sessionStorage.getItem(key);
+    if(user && users[user]){ showSection(targetId); return; }
     pendingTarget = targetId;
+    pendingArea   = area;
     openLogin();
   }
 
@@ -400,24 +416,32 @@
     const errEl = document.getElementById('loginErr');
 
     if(!email || !pass){ errEl.textContent='يرجى إدخال البريد وكلمة المرور.'; return; }
-    const stored = AUTH_USERS[email];
-    if(!stored){ errEl.textContent='بريد غير مخوّل.'; return; }
+    const set  = AUTH[pendingArea] || {};
+    const users= set.USERS || {};
+    const salt = set.SALT || '';
 
-    const hash = await sha256Hex(pass + ':' + AUTH_SALT);
+    const stored = users[email];
+    if(!stored){ errEl.textContent='بريد غير مخوّل لهذه الصلاحية.'; return; }
+
+    const hash = await sha256Hex(pass + ':' + salt);
     if(hash === stored){
-      sessionStorage.setItem('abs_user', email);
+      sessionStorage.setItem('abs_user_' + pendingArea, email);
       closeLogin();
-      showSection(pendingTarget || 'stats');
+      showSection(pendingTarget || (pendingArea==='stats' ? 'stats' : 'register_home'));
       pendingTarget = null;
     }else{
       errEl.textContent='كلمة المرور غير صحيحة.';
     }
   }
-  function doLogout(){
-    sessionStorage.removeItem('abs_user');
+  function doLogout(area){
+    if(area==='stats' || area==='reg'){
+      sessionStorage.removeItem('abs_user_' + area);
+    }else{
+      sessionStorage.removeItem('abs_user_stats');
+      sessionStorage.removeItem('abs_user_reg');
+    }
     alert('تم تسجيل الخروج.');
     pendingTarget = null;
-    // ارجع للواجهة الرئيسية بدون أقسام
     document.querySelectorAll('.wrap > .card').forEach(div=>div.classList.add('hidden'));
     window.scrollTo({top:0,behavior:'smooth'});
   }
@@ -427,13 +451,13 @@
    * حقول كل مادة: name + sheet + excelUrl + scriptUrl
    ******************************************************************/
 
-  /* ===== المرحلة الأولى – الكورس الأول – الصباحية ===== */
+  /*  المرحلة الأولى – الكورس الأول – الصباحية  */
   const ST1_CR1_MORNING = {
     theory: [
       {name:"رياضيات",      sheet:"W1", excelUrl:"https://docs.google.com/spreadsheets/d/1Hvs5EouOMLdEQG8KWKWEp3Nj1NdWNlCS35wmjO1QpUE/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbxuyHKIDhncv1Cl-Hv7alzKJEbCqaGCSZMs8MlnuINmp5tBCGy3uijrsFxhZu7_o2Ph/exec"},
       {name:"اللغة العربية", sheet:"W2", excelUrl:"https://docs.google.com/spreadsheets/d/1P_Lu34O1Hai7_VTlgh0MMv0NaBmbTGUahoGFgwZmFaE/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzASD2kGLITj60illSbD8Wcy36SfCWT613QfxOFcIopElpZ8oSj04aNi3dXM7y4Hs8UXQ/exec"},
       {name:"المنطق المحدد", sheet:"W3", excelUrl:"https://docs.google.com/spreadsheets/d/1O21sAd-zAmL4CoCaexYPZzl4zcidب6fojqW-VS2ZgQY/edit?usp=drive_link", scriptUrl:"https://script.google.com/macros/s/AKfycbypW8nupQBLnpxOvfZS-l85vXن1jMQAkW9iJHfEuretD5AqHafGS0V2TWo4XXg2uLqq/exec"},
-      {name:"حاسوب",       sheet:"W4", excelUrl:"https://docs.google.com/spreadsheets/d/1VY20Mbf-8h2qpllc4m11idzOvUXcF1So-CZx2g9FrhQ/edit?usp=drive_link", scriptUrl:"https://script.google.com/macros/s/AKfycbzJZpvMLKH2pabMn7Y0nUwPCmqp47Cj0Rr5dvzy7X36KZZCqCGugbbbJRJs9WmZIEql/exec"},
+      {name:"حاسوب",       sheet:"W4", excelUrl:"https://docs.google.com/spreadsheets/d/1VY20Mbf-8h2qpllc4m11idzOvUXcF1So-CZx2g9FrhQ/edit?usp=drive_link", scriptUrl:"https://script.google.com/macros/s/AKfycbzJZpvMLKH2pabMn7Y0nUwPCmqp47Cj0Rر5dvzy7X36KZZCqCGugbbbJRJs9WmZIEql/exec"},
       {name:"ديمقراطية",   sheet:"W5", excelUrl:"https://docs.google.com/spreadsheets/d/1KIxWcKl7s8QHfUn4U2KGbdgSXRS2-tYhc_X8DlVMmLI/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbwLC91zB7J5aPWHADH8BMVFf-R1BOp9KMzvioWr5h4olN00PZGJHUOfNux0ZTwaGbSQ2w/exec"},
       {name:"فيزياء",      sheet:"W6", excelUrl:"https://docs.google.com/spreadsheets/d/1_hER5IZ4qbREMosUIeq8JJn60f_0rFx38w3zPGOGzIM/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzwfehtO_-8DlG7LSjPPb8WsUB9pYnOKSFQR7c548G6eVDx0UNE71EupGja6xFHuQXtHg/exec"},
       {name:"رسم هندسي",   sheet:"W7", excelUrl:"https://docs.google.com/spreadsheets/d/1vZ8GaoYFvbej2dWybabl0Lin7SxIwl-esFvWIx6HsVk/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbwY03Knnb6j9mvqKCi2pwkkBnWZTLqC7PSMsSPUksbcnQrzUa_bFLfuEue8lkfQeFTLtQ/exec"},
@@ -442,7 +466,7 @@
       {name:"تمارين رياضيات",     sheet:"W8",  excelUrl:"https://docs.google.com/spreadsheets/d/1btjQ7JJN3URP3px-fuTMbhxjxrEATA6jNtYXXeyqtyw/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbxXMuL8innEASs6O8O_3Lb3p_r7l2ERvSCff77RTfdMTD9Z3drKqUKxztFf4rAvPoTPUg/exec"},
       {name:"أونلاين رياضيات",     sheet:"W12", excelUrl:"https://docs.google.com/spreadsheets/d/1KyIC728DTtIXxG8P2FTHlXxp8FTz6afiIb5MHHVBRNY/edit?usp=drive_link", scriptUrl:"https://script.google.com/macros/s/AKfycbwZ7M9X-ZgxWUJ_gJ8bDO67NpsX2TK8w74BMZiuiQMNTDG-C4GbbrgeHEQQtTV0P9n4/exec"},
       {name:"تمارين المنطق المحدد", sheet:"W14", excelUrl:"https://docs.google.com/spreadsheets/d/1G7-ofxx2i9GN3YDnER6Nwk-eRpxW56i7ObytHXD9i60/edit?usp=drive_link", scriptUrl:"https://script.google.com/macros/s/AKfycbzRNUNk5XcP34OUKGYDW4SF6DIQ_duMGOlOCHYROBeM46LJNsbsXxv_imcMfKVG112c/exec"},
-      {name:"تمارين فيزياء",      sheet:"W11", excelUrl:"https://docs.google.com/spreadsheets/d/1HtzIfaT7txhKErfA1N0U-RS0e7hqmTXX0Shj3ciFUcE/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbwKVkhD1PUhHXKnQZvy4sw0dbVf2zKiuX2ox-iVKI3khomC57cLN38O47zsnFcUJODuew/exec"},
+      {name:"تمارين فيزياء",      sheet:"W11", excelUrl:"https://docs.google.com/spreadsheets/d/1HtzIfaT7txhKErfA1N0U-RS0e7hqmTXX0Shj3ciFUcE/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbwKVkhD1PUhHXKnQZvy4sw0dbVf2زKiuX2ox-iVKI3khomC57cLN38O47zsnFcUJODuew/exec"},
     ],
     lab: [
       {name:"مختبر الرسم الهندسي", sheet:"W13", excelUrl:"https://docs.google.com/spreadsheets/d/1KfplcY88qq-q4W6S1uC-akvacBz5Q9_uuwu3xbi3Oi0/edit?usp=drive_link", scriptUrl:"https://script.google.com/macros/s/AKfycbxYz6fkekzHbWzCIzHFOjXuEdvuWfRK0vh9kP_IPG55-yHexQvrxe_S2PvflUZePng-Zw/exec"},
@@ -451,7 +475,7 @@
     ]
   };
 
-  /* ===== المرحلة الأولى – الكورس الأول – المسائية ===== */
+  /* المرحلة الأولى – الكورس الأول – المسائية  */
   const ST1_CR1_EVENING = {
     theory: [
       {name:"رياضيات",      sheet:"N1", excelUrl:"https://docs.google.com/spreadsheets/d/1adZEZA66kTzXi7pw9h_ZFPsRGFjp2aiE2ZSaSlsduLg/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzllYaoH3RL4bqqA1JI_HEWGb27cBFcsABXhJy5LJpLa8ggDUstI-IdnjsVpOLIhJg/exec"},
@@ -475,10 +499,10 @@
     ]
   };
 
-  /* ===== المرحلة الأولى – الكورس الثاني – الصباحية ===== */
+  /*  المرحلة الأولى – الكورس الثاني – الصباحية  */
   const ST1_CR2_MORNING = {
     theory: [
-      {name:"دوائر كهربائية",sheet:"E1",excelUrl:"https://docs.google.com/spreadsheets/d/1eF1CHhnAYb3N77V6RzErdyuBTwO3xy1RUiY01AJAI7Q/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbzbNT_ECbnfgUf_Ml2xw5jqabsbBVacZtwocGnv98D-6S5-Tob7qTP9_zDXza2EDAZn2w/exec"},
+      {name:"دوائر كهربائية",sheet:"E1",excelUrl:"https://docs.google.com/spreadsheets/d/1eF1CHhnAYb3N77V6RzErdyuBTwO3xy1RUiY01AJAI7Q/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbzbNT_ECbnfgUf_Ml2xw5jqabsbBVacZtwocGnv98D-6S5-Tob7qTP9_zDXza2EDAZن2w/exec"},
       {name:"هياكل بيانات",sheet:"E2",excelUrl:"https://docs.google.com/spreadsheets/d/1_Alj_C86Uz5yeTNd3cfwTkB0xDYTWCf6vZs7o4cjYR4/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbzTxQ6f__y_itvjOiDqOg-ajAG1hXZYiBWQtnOvGXJAYzh8uPszRyASp5h6xxBpDQrZMA/exec"},
       {name:"اللغة الانكليزية",sheet:"E3",excelUrl:"https://docs.google.com/spreadsheets/d/1MyURtizgdaXiGSykZLA826PNhBW-d_-dQBH2NrCWVhM/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbzAotx8n06KTRT2vknJkb_X7DwcoBajN6KiROzoRLfXsTTE7mBvmlecy8FAXNdqXEugMQ/exec"},
       {name:"الرياضيات",sheet:"E4",excelUrl:"https://docs.google.com/spreadsheets/d/1v8FnbB5BS9PqbqUAopyjcC10XpIqhYqjjNeIC3JWejE/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbzDl6ABQBZgxBhc15VxAZSH9umoFKGw-CzGXrHzj-Z7N1LBN90p9XZbxyYaCSv-scHHxA/exec"},
@@ -498,7 +522,7 @@
     ]
   };
 
-  /* ===== المرحلة الأولى – الكورس الثاني – المسائية ===== */
+  /* المرحلة الأولى – الكورس الثاني – المسائية  */
   const ST1_CR2_EVENING = {
     theory: [
       {name:"دوائر كهربائية",sheet:"O1",excelUrl:"https://docs.google.com/spreadsheets/d/1MdVPTfQcw8A2ZZAZNAl2hU9WigQ6BqNcHVP7TK68NhY/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbyw08igm-rx29FUpu625jyPQ3eH5zawxUK0XJI1iHg-4olq0QwxDzkOUd3GC2tuLlxu/exec"},
@@ -559,18 +583,19 @@
     ]
   };
 
-  /* ====== المرحلة الثالثة/الرابعة – Placeholders ====== */
+  /* ====== المرحلة الثالثة – Placeholders ====== */
   const ST3_CR1_MORNING = {theory:[{name:"مادة1",sheet:"t3c1m1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
   const ST3_CR1_EVENING = {theory:[{name:"مفردة1",sheet:"t3c1e1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
   const ST3_CR2_MORNING = {theory:[{name:"مادة2",sheet:"t3c2m1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
   const ST3_CR2_EVENING = {theory:[{name:"مفردة2",sheet:"t3c2e1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
 
+  /* ====== المرحلة الرابعة – Placeholders ====== */
   const ST4_CR1_MORNING = {theory:[{name:"مادة1",sheet:"t4c1m1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
   const ST4_CR1_EVENING = {theory:[{name:"مفردة1",sheet:"t4c1e1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
   const ST4_CR2_MORNING = {theory:[{name:"مادة2",sheet:"t4c2m1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
   const ST4_CR2_EVENING = {theory:[{name:"مفردة2",sheet:"t4c2e1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
 
-  /* ====== سجل البيانات العام ====== */
+  /* السجل العام  */
   const DATA_REGISTRY = {
     "1": { "1": { morning: ST1_CR1_MORNING, evening: ST1_CR1_EVENING },
            "2": { morning: ST1_CR2_MORNING, evening: ST1_CR2_EVENING } },
@@ -605,7 +630,7 @@
     return btn;
   }
 
-  /********************** أدوات مساعدة للإحصائية **********************/
+  /* أدوات مساعدة للإحصائية */
   function currentConfig(){
     return (DATA_REGISTRY[document.getElementById('stageSel').value]
             ?. [document.getElementById('courseSel').value]
@@ -619,7 +644,7 @@
     const idx={}; [...cfg.theory, ...cfg.drill, ...cfg.lab].forEach(x=>idx[x.name]=x); return idx;
   }
 
-  /********************** الأسابيع **********************/
+  /* الأسابيع */
   function ensureWeeks(){
     const wf=document.getElementById('weekFromSel');
     const wt=document.getElementById('weekToSel');
@@ -632,7 +657,7 @@
     }
   }
 
-  /********************** إنذار احتياطي **********************/
+  /* إنذار */
   function warnText(percent){
     const p = Number(percent||0);
     if(p===0) return '';
@@ -644,7 +669,7 @@
     return '';
   }
 
-  /********************** بناء الإحصائية **********************/
+  /*  الإحصائية */
   async function buildReport(){
     const cfg      = currentConfig();
     const groups   = buildGroupsMap(cfg);
@@ -732,21 +757,18 @@
 
   /*************** تشغيل أولي ***************/
   window.addEventListener('DOMContentLoaded', ()=>{
-    // لا نعرض أقسام داخلية إلا بعد ضغط زر علوي (لأنها محمية)
     document.querySelectorAll('.wrap > .card').forEach(div=>div.classList.add('hidden'));
     ensureWeeks();
     document.getElementById('stageSel').value = '1';
     document.getElementById('courseSel').value = '1';
     document.getElementById('systemSel').value = 'morning';
   });
-
-
-
 </script>
-</body>
 
- <!-- ذيل الصفحة -->
+<!-- ذيل الصفحة داخل body -->
 <div class="site-footer">
-  <p>إعداد: التدريسية شيماء مظفر هاشم</p>
+  <p>إعداد التدريسية: شيماء مظفر هاشم</p>
 </div>
+
+</body>
 </html>
