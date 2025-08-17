@@ -6,8 +6,9 @@
 <title>واجهة الغيابات – جامعة النهرين</title>
 <style>
   :root{
-    --bg:#f4f1e8; --panel:#fffaf0; --accent:#8b4513; --accent-2:#6f3510;
-    --title:#5b3b1a; --shadow:0 2px 10px rgba(0,0,0,.08); --radius:14px;
+    --bg:#f4f1e8; --panel:#fffaf0;
+    --accent:#2e7d32; --accent-2:#1b5e20; /* أخضر */
+    --title:#1b5e20; --shadow:0 2px 10px rgba(0,0,0,.08); --radius:14px;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:#222}
@@ -28,16 +29,24 @@
   .hero-text .l3{font-size:clamp(16px,2.6vw,32px);font-weight:700}
   .hero-logo{width:clamp(100px,18vw,220px);height:auto;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
 
-  .topbar{display:flex;gap:10px;justify-content:flex-end;padding:16px}
-  .chip{border:none;background:#5b3b1a;color:#fff;font-weight:700;border-radius:12px;padding:10px 16px;cursor:pointer;box-shadow:var(--shadow)}
-  .chip.secondary{background:#444}
+  /* ===== الأزرار العلوية (كبيرة وخضراء) ===== */
+  .topbar{display:flex;gap:30px;justify-content:center;padding:24px}
+  .chip{
+    font-size:22px; padding:20px 36px; border-radius:18px;
+    background:var(--accent); color:#fff; font-weight:700; border:none; cursor:pointer;
+    box-shadow:0 6px 16px rgba(0,0,0,.25); transition:transform .2s ease, background .2s ease;
+    display:flex; align-items:center; gap:12px;
+  }
+  .chip:hover{transform:scale(1.07); background:var(--accent-2)}
+  .chip .icon{font-size:28px}
+
   .wrap{max-width:1200px;margin:0 auto;padding:16px}
   .hidden{display:none}
   .card{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
 
   .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-  .button{display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;font-weight:700;border-radius:12px;height:60px;cursor:pointer;box-shadow:var(--shadow)}
-  .button:hover{background:var(--accent-2)}
+  .button{display:flex;align-items:center;justify-content:center;background:#388e3c;color:#fff;font-weight:700;border-radius:12px;height:60px;cursor:pointer;box-shadow:var(--shadow)}
+  .button:hover{background:#2e7d32}
   .back{background:#666}.back:hover{background:#555}
 
   .cols{display:flex;flex-wrap:wrap;gap:16px}
@@ -77,24 +86,15 @@
   .actions{display:flex;gap:8px;justify-content:flex-start;margin-top:8px}
   .err{color:#b00020;font-size:14px;min-height:18px}
 
-  /* ====== التذييل ====== */
   .site-footer{margin:30px auto 20px;max-width:1200px;padding:0 16px;color:#555;display:flex;justify-content:flex-start;align-items:center}
 
   @media (max-width:720px){
     .num{width:80px}
     table{min-width:900px}
     .hero-overlay{padding:10px 12px;gap:12px}
+    .chip{font-size:18px;padding:16px 24px}
+    .chip .icon{font-size:24px}
   }
-
-  /* ===== زر اتصل بنا العائم ===== */
-  .contact-float{
-    position:fixed;left:16px;bottom:16px;z-index:9998;width:66px;height:66px;border-radius:12px;
-    background:var(--accent);color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.18);
-    display:flex;align-items:center;justify-content:center;font-weight:800;cursor:pointer;user-select:none;
-    transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
-  }
-  .contact-float:hover{transform:scale(1.07);box-shadow:0 10px 22px rgba(0,0,0,.22);background:var(--accent-2)}
-  .contact-float span{font-size:12px;line-height:1.1;text-align:center}
 
   /* ===== تحسين الطباعة ===== */
   @media print{
@@ -117,14 +117,14 @@
     thead{ display:table-header-group; }
   }
 
-  /* ===== ترتيب مراحل 2×2 على الشاشات الواسعة ===== */
+  /* ترتيب مراحل 2×2 */
   .stage-grid{grid-template-columns:repeat(2,minmax(220px,1fr))}
   @media (max-width:720px){ .stage-grid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
 
-  <!-- ====== الفيديو أعلى الصفحة + شريط نص/شعار ====== -->
+  <!-- ====== الفيديو + الشعار ====== -->
   <div class="hero">
     <video autoplay muted loop playsinline>
       <source src="1.77.mp4" type="video/mp4">
@@ -140,16 +140,16 @@
     </div>
   </div>
 
-  <!-- شريط علوي -->
+  <!-- أزرار الرأس (كبيرة وخضراء) -->
   <div class="topbar">
-    <button class="chip" onclick="openStats()">إحصائية الغيابات</button>
-    <button class="chip secondary" onclick="showSection('register_home')">تسجيل الغيابات</button>
+    <button class="chip" onclick="openProtected('stats')"><span class="icon">📊</span> إحصائية الغيابات</button>
+    <button class="chip" onclick="openProtected('register_home')"><span class="icon">📝</span> تسجيل الغيابات</button>
   </div>
 
   <div class="wrap">
 
     <!-- تسجيل الغيابات -->
-    <div id="register_home" class="card">
+    <div id="register_home" class="card hidden">
       <h2 style="margin:6px 0 14px">تسجيل الغيابات</h2>
       <div class="menu-grid" style="max-width:700px">
         <div class="button" onclick="showSection('reg_stage')">اختر المرحلة الدراسية</div>
@@ -211,7 +211,7 @@
       <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
         <h2 style="margin:6px 0 14px">إحصائية الغيابات</h2>
         <div style="display:flex;gap:8px">
-          <button id="logoutBtn" class="chip secondary hidden" onclick="doLogout()">تسجيل الخروج</button>
+          <button id="logoutBtn" class="chip" style="font-size:16px;padding:10px 16px" onclick="doLogout()">تسجيل الخروج</button>
         </div>
       </div>
 
@@ -305,19 +305,14 @@
   </div><!-- /wrap -->
 
   <!-- زر اتصل بنا العائم -->
-  <div class="contact-float" onclick="openContact()" title="اتصل بنا">
-    <span>اتصل<br>بنا</span>
-  </div>
-
-  <!-- ====== تذييل ====== -->
-  <div class="site-footer">
-    <span>إعداد التدريسية شيماء مظفر هاشم</span>
+  <div class="contact-float" onclick="openContact()" title="اتصل بنا" style="position:fixed;left:16px;bottom:16px;z-index:9998;width:66px;height:66px;border-radius:12px;background:var(--accent);color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;font-weight:800;cursor:pointer;user-select:none;transition:transform .15s ease,box-shadow .15s ease,background .15s ease;">
+    <span style="font-size:12px;line-height:1.1;text-align:center">اتصل<br>بنا</span>
   </div>
 
   <!-- ====== نافذة تسجيل الدخول ====== -->
   <div id="loginModal" class="modal" aria-hidden="true">
     <div class="box">
-      <h3>تسجيل الدخول – عرض إحصائية الغيابات</h3>
+      <h3>تسجيل الدخول للوصول</h3>
       <div class="form-row">
         <label for="loginEmail">البريد الجامعي</label>
         <input id="loginEmail" class="input" type="email" placeholder="example@nahrainuniv.edu.iq" autocomplete="username">
@@ -340,7 +335,8 @@
     document.querySelectorAll('.wrap > .card').forEach(div=>div.classList.add('hidden'));
     const el = document.getElementById(id);
     if(el){ el.classList.remove('hidden'); }
-    if(id==='stats'){ ensureWeeks(); document.getElementById('logoutBtn').classList.remove('hidden'); }
+    if(id==='stats'){ ensureWeeks(); }
+    window.scrollTo({top:0,behavior:'smooth'});
   }
   function openContact(){
     showSection('contact');
@@ -364,19 +360,23 @@
     showSection('reg_subjects');
   }
 
-  /*************** الحماية: مستخدمو الإحصائية ***************/
+  /*************** الحماية: مستخدمو الوصول ***************/
   const AUTH_SALT = 'ai-eng-2025';
   const AUTH_USERS = {
-    'shaimaa.mudhafar@nahrainuniv.edu.iq': '449e7936fae1db20a674a5c1b893628b5693c95c0da258c2da50c73fdf24a16f', 
-    'Noor.maher@nahrainuniv.edu.iq':      'a454327e5d4b28605fcc8b2b6e6e1b23c2cdd43dc680842cc1ff45be1a68e96f', 
-    'omar.a.abbas@nahrainuniv.edu.iq':    'f80a1833312a96e92ab373c991c992f4d4f10c3fc174a81c38012ef92de8be45'  
+    'shaimaa.mudhafar@nahrainuniv.edu.iq': '449e7936fae1db20a674a5c1b893628b5693c95c0da258c2da50c73fdf24a16f', // nahrain@1
+    'Noor.maher@nahrainuniv.edu.iq':      'a454327e5d4b28605fcc8b2b6e6e1b23c2cdd43dc680842cc1ff45be1a68e96f', // nahrain@2
+    'omar.a.abbas@nahrainuniv.edu.iq':    'f80a1833312a96e92ab373c991c992f4d4f10c3fc174a81c38012ef92de8be45'  // nahrain@3
   };
 
-  function openStats(){
-    const user = sessionStorage.getItem('abs_stats_user');
-    if(user && AUTH_USERS[user]){ showSection('stats'); return; }
+  let pendingTarget = null; // أين نوجّه المستخدم بعد تسجيل الدخول
+
+  function openProtected(targetId){
+    const user = sessionStorage.getItem('abs_user');
+    if(user && AUTH_USERS[user]){ showSection(targetId); return; }
+    pendingTarget = targetId;
     openLogin();
   }
+
   function openLogin(){
     const m = document.getElementById('loginModal');
     m.classList.add('open'); m.setAttribute('aria-hidden','false');
@@ -405,17 +405,21 @@
 
     const hash = await sha256Hex(pass + ':' + AUTH_SALT);
     if(hash === stored){
-      sessionStorage.setItem('abs_stats_user', email);
+      sessionStorage.setItem('abs_user', email);
       closeLogin();
-      showSection('stats');
+      showSection(pendingTarget || 'stats');
+      pendingTarget = null;
     }else{
       errEl.textContent='كلمة المرور غير صحيحة.';
     }
   }
   function doLogout(){
-    sessionStorage.removeItem('abs_stats_user');
-    document.getElementById('logoutBtn').classList.add('hidden');
-    showSection('register_home');
+    sessionStorage.removeItem('abs_user');
+    alert('تم تسجيل الخروج.');
+    pendingTarget = null;
+    // ارجع للواجهة الرئيسية بدون أقسام
+    document.querySelectorAll('.wrap > .card').forEach(div=>div.classList.add('hidden'));
+    window.scrollTo({top:0,behavior:'smooth'});
   }
 
   /******************************************************************
@@ -449,7 +453,7 @@
 
   /* ===== المرحلة الأولى – الكورس الأول – المسائية ===== */
   const ST1_CR1_EVENING = {
-     theory: [
+    theory: [
       {name:"رياضيات",      sheet:"N1", excelUrl:"https://docs.google.com/spreadsheets/d/1adZEZA66kTzXi7pw9h_ZFPsRGFjp2aiE2ZSaSlsduLg/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzllYaoH3RL4bqqA1JI_HEWGb27cBFcsABXhJy5LJpLa8ggDUstI-IdnjsVpOLIhJg/exec"},
       {name:"اللغة العربية", sheet:"N4", excelUrl:"https://docs.google.com/spreadsheets/d/1jDS0GjVrWeSCddY3UZ9neaP6w0NAVk7957Qf-esfvpc/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbxVD_he3f21Y4Y3CDXPHcIEUyrrLy7VuRsEyRIi0H2LXTV-GdjjXfN5MaU4Fx9qTrpN/exec"},
       {name:"المنطق المحدد", sheet:"N5", excelUrl:"https://docs.google.com/spreadsheets/d/13OQfkpjD-N8YeF8yt--HsEdatl1xyyBWHuErLrFnjk8/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbxBeI_GQkV7KLs-EduZc9FgaNx2KxIMQiY-pkuMfZYOLeM5BvZJeMwjx2ZhCL6Eo7AR/exec"},
@@ -465,11 +469,10 @@
       {name:"أونلاين رياضيات",     sheet:"N9",  excelUrl:"https://docs.google.com/spreadsheets/d/1wtC5YTGHM8qCVXmyNZaSGxRe066qUurmvKbUn7X23y4/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbxdooaUTfdTDW7nkg_PLQwJLvWp0CPUUvGWIc_8ribu9-PrC_yJ1T0YF08v2k_MvBtobQ/exec"},
     ],
     lab: [
-      {name:"مختبر الفيزياء",      sheet:"N12", excelUrl:"https://docs.google.com/spreadsheets/d/1GdA8rJfthZIhX6RLExF-yy8LrqcZ3ck4GEqIXEEHQpQ/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzAozsK6mM4CocZ4dcCCz0HxSHafm6CQ1lvA7GBlYrysKeuhJIPBkYt8hx6J5TnUPxK/exec"},
+      {name:"مختبر الفيزياء",      sheet:"N12", excelUrl:"https://docs.google.com/spreadsheets/d/1GdA8rJfthZIhX6RLExF-yy8LrqcZ3ck4GEqIXEEHQpQ/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzAozsK6mM4CocZ4dcCCz0HxSHafm6CQ1lvA7GBlYrysKeuhJIPBkYt8hx6J5TنUPxK/exec"},
       {name:"مختبر الحاسوب",       sheet:"N13", excelUrl:"https://docs.google.com/spreadsheets/d/1JsN0M4dxi6e4qIiNmzdq8fD6EAogJJZU7FLXMXnth-k/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbzBFQohCb3bWi-WFeWgkpWdHjh8RgOnjbOvcmnqABxMKhEa6piZCidORSEzU8Z5FmRB/exec"},
       {name:"مختبر الرسم الهندسي",  sheet:"N14", excelUrl:"https://docs.google.com/spreadsheets/d/1iTk2TEYonykRl_gooO7NzA_Q0q2rJ3J6fHuMn2_-iVM/edit?usp=sharing", scriptUrl:"https://script.google.com/macros/s/AKfycbwN1Lod48hSnRfluCzqFK58jp317G3Xd2sN0KmyZSdb3QzfdV620u3JwLUmLYYvMlW3/exec"},
     ]
-
   };
 
   /* ===== المرحلة الأولى – الكورس الثاني – الصباحية ===== */
@@ -493,12 +496,11 @@
       {name:"مختبر هياكل البيانات",sheet:"E12",excelUrl:"https://docs.google.com/spreadsheets/d/1kaBPmwxANyQ2tjLsXdBlIKGYgXfAUnALG4fSx2VoKBk/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbwvJdexDxc94Fi1EP_KRDMnRfReo2m5XB0xrCre5SQI-wbYC9rXXf8mg3fyC55CZNB0wg/exec"},
       {name:"مختبر الكيمياء",sheet:"E12",excelUrl:"https://docs.google.com/spreadsheets/d/1V2DFa7jZ73o2rAKPJUzSzUeVtEVUf6BWI40ClBwFPJs/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbwDzPjogxPQlVUsA7FxQlBLa_iNZ43S-HUf1tmAxQPNWHT9v5DVFbqMR01H_HCwwexzkg/exec"},
     ]
-
   };
 
   /* ===== المرحلة الأولى – الكورس الثاني – المسائية ===== */
   const ST1_CR2_EVENING = {
-   theory: [
+    theory: [
       {name:"دوائر كهربائية",sheet:"O1",excelUrl:"https://docs.google.com/spreadsheets/d/1MdVPTfQcw8A2ZZAZNAl2hU9WigQ6BqNcHVP7TK68NhY/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbyw08igm-rx29FUpu625jyPQ3eH5zawxUK0XJI1iHg-4olq0QwxDzkOUd3GC2tuLlxu/exec"},
       {name:"هياكل بيانات",sheet:"O2",excelUrl:"https://docs.google.com/spreadsheets/d/1mhTvlR11O0CCz7wy5xjBSlxCxtp91aKt1Ycu2lJRiGI/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbx-ZYTP-5t6rOTHsKG0z8ptdi6TW3lQRqDqJ3KolIY3qeYkKqWDpqCYRm99pXFuTq7hpA/exec"},
       {name:"اللغة الانكليزية",sheet:"O3",excelUrl:"https://docs.google.com/spreadsheets/d/1lxs-yb1DrgPq_YeD2IJi-ue07z1TCdzOCj_e-c1rsug/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbzNX4zdUEomccHpJSN2XGxvy0ND42yuPDwQIhFs15kizOQRLs3-RgU8TS_JF6Y3L0918w/exec"},
@@ -517,10 +519,9 @@
       {name:"مختبر هياكل البيانات",sheet:"O9",excelUrl:"https://docs.google.com/spreadsheets/d/1cUQ882e7z9lldVjgANNReNujynckiorkavljG6_ro1w/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbxPT9eXNW1jFVKyXwpcaL5B7snGn9icWEgW-UMFOJhRXZhT5Fi04n_3VLdR1TceTtgN/exec"},
       {name:"مختبر الكيمياء",sheet:"O10",excelUrl:"https://docs.google.com/spreadsheets/d/1GhwH1Y9ulqGVYXDL43hEuInz5fs6I6_nglQr8yMRPT0/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/AKfycbyRf_Do48EGU35aXgsO4wBduuCjHYbXS0MK0fc3eLYqAyOfoavKQjBmk8XdDbFvX6tf/exec"},
     ]
-
   };
 
-  /* ====== المرحلة الثانية – الكورس الأول ====== (أماثلة/Placeholders) */
+  /* ====== المرحلة الثانية – الكورس الأول (Placeholders) ====== */
   const ST2_CR1_MORNING = {
     theory:[{name:"مادة1",sheet:"p1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],
     drill:[{name:"مادة2",sheet:"p2",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],
@@ -532,7 +533,7 @@
     lab:[{name:"مفردة3",sheet:"v3",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}]
   };
 
-  /* ====== المرحلة الثانية – الكورس الثاني (روابط فارغة كما طلبت) ====== */
+  /* ====== المرحلة الثانية – الكورس الثاني (Placeholders) ====== */
   const ST2_CR2_MORNING = {
     theory:[
       {name:"مادة1",sheet:"s2m_t1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"},
@@ -558,13 +559,12 @@
     ]
   };
 
-  /* ====== المرحلة الثالثة – الكورس الأول/الثاني (Placeholders) ====== */
+  /* ====== المرحلة الثالثة/الرابعة – Placeholders ====== */
   const ST3_CR1_MORNING = {theory:[{name:"مادة1",sheet:"t3c1m1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
   const ST3_CR1_EVENING = {theory:[{name:"مفردة1",sheet:"t3c1e1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
   const ST3_CR2_MORNING = {theory:[{name:"مادة2",sheet:"t3c2m1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
   const ST3_CR2_EVENING = {theory:[{name:"مفردة2",sheet:"t3c2e1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
 
-  /* ====== المرحلة الرابعة – الكورس الأول/الثاني (Placeholders) ====== */
   const ST4_CR1_MORNING = {theory:[{name:"مادة1",sheet:"t4c1m1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
   const ST4_CR1_EVENING = {theory:[{name:"مفردة1",sheet:"t4c1e1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
   const ST4_CR2_MORNING = {theory:[{name:"مادة2",sheet:"t4c2m1",excelUrl:"https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?usp=sharing",scriptUrl:"https://script.google.com/macros/s/XXXXX/exec"}],drill:[],lab:[]};
@@ -572,22 +572,14 @@
 
   /* ====== سجل البيانات العام ====== */
   const DATA_REGISTRY = {
-    "1": {
-      "1": { morning: ST1_CR1_MORNING, evening: ST1_CR1_EVENING },
-      "2": { morning: ST1_CR2_MORNING, evening: ST1_CR2_EVENING }
-    },
-    "2": {
-      "1": { morning: ST2_CR1_MORNING, evening: ST2_CR1_EVENING },
-      "2": { morning: ST2_CR2_MORNING, evening: ST2_CR2_EVENING }
-    },
-    "3": {
-      "1": { morning: ST3_CR1_MORNING, evening: ST3_CR1_EVENING },
-      "2": { morning: ST3_CR2_MORNING, evening: ST3_CR2_EVENING }
-    },
-    "4": {
-      "1": { morning: ST4_CR1_MORNING, evening: ST4_CR1_EVENING },
-      "2": { morning: ST4_CR2_MORNING, evening: ST4_CR2_EVENING }
-    }
+    "1": { "1": { morning: ST1_CR1_MORNING, evening: ST1_CR1_EVENING },
+           "2": { morning: ST1_CR2_MORNING, evening: ST1_CR2_EVENING } },
+    "2": { "1": { morning: ST2_CR1_MORNING, evening: ST2_CR1_EVENING },
+           "2": { morning: ST2_CR2_MORNING, evening: ST2_CR2_EVENING } },
+    "3": { "1": { morning: ST3_CR1_MORNING, evening: ST3_CR1_EVENING },
+           "2": { morning: ST3_CR2_MORNING, evening: ST3_CR2_EVENING } },
+    "4": { "1": { morning: ST4_CR1_MORNING, evening: ST4_CR1_EVENING },
+           "2": { morning: ST4_CR2_MORNING, evening: ST4_CR2_EVENING } }
   };
 
   /********************** UI التسجيل (فتح Excel) **********************/
@@ -740,12 +732,21 @@
 
   /*************** تشغيل أولي ***************/
   window.addEventListener('DOMContentLoaded', ()=>{
-    showSection('register_home');
+    // لا نعرض أقسام داخلية إلا بعد ضغط زر علوي (لأنها محمية)
+    document.querySelectorAll('.wrap > .card').forEach(div=>div.classList.add('hidden'));
     ensureWeeks();
     document.getElementById('stageSel').value = '1';
     document.getElementById('courseSel').value = '1';
     document.getElementById('systemSel').value = 'morning';
   });
+
+
+
 </script>
 </body>
+
+ <!-- ذيل الصفحة -->
+<div class="site-footer">
+  <p>إعداد: التدريسية شيماء مظفر هاشم</p>
+</div>
 </html>
